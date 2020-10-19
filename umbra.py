@@ -285,7 +285,7 @@ class Rijndael:
                 # Calculate CipherText offsets
                 fileSize    = os.path.getsize(inFilePath)
                 cipherBegin = enc.tell()
-                cipherEnd   = fileSize -((1<<5)+1) #3*11 # 33 # - 1 - 32
+                cipherEnd   = fileSize - ((1<<5)+1)
                 cipherSize  = cipherEnd - cipherBegin
 
                 if cipherSize % AES.block_size != 0:
