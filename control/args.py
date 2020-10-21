@@ -14,8 +14,8 @@ class Args:
 """
 
     intro = f"""{sys.platform} pid: {os.getppid()}\n{BANNER}
-Umbra: File Encryption Utility 
-GPL-3.0 License (GPLv3.0) 2020 @CogitoErgoCode
+Umbra: File Encryption Utility v1.0
+Blog : cogitoergocode.github.io/rijndael/
 Usage: umbra.py [Option(s)] {{Argument specification}}
 
 Options:

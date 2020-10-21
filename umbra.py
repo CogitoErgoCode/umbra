@@ -1,5 +1,5 @@
 from control.args import Args
-from crypto.cbc   import Rijndael
+from ciphers.cbc  import Rijndael
 import os.path
 
 bufferSize = 2**16
