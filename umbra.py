@@ -1,6 +1,6 @@
 from control.args import Args
 from ciphers.aes  import Rijndael
-import os.path
+import os.path, re
 
 bufferSize = 2**16
 
@@ -21,7 +21,7 @@ def main():
         if password and path:
             cipherObj = Rijndael(password)
             try:
-                cipherObj.encrypt_file(path, path+".bin", bufferSize)
+                cipherObj.encrypt_file(path, path+".um", bufferSize)
             except Exception as error:
                 print("[ ! ] Encryption Failed\n" + " "*6 + f"{error}...")
             else:
@@ -30,11 +30,12 @@ def main():
     if args.dct_args.get('decrypt'):
         password, path = args.dct_args.get('decrypt')
         path = expander(path)
+        ext  = re.search(r"(\.\w+)\.um$", path, re.I).group(1)
 
         if password and path:
             cipherObj = Rijndael(password)
             try:
-                cipherObj.decrypt_file(path, path.replace(".bin",""), bufferSize)
+                cipherObj.decrypt_file(path, path+ext, bufferSize)
             except Exception as error:
                 print("[ ! ] Decryption Failed\n" + " "*6 + f"{error}...")
             else:
